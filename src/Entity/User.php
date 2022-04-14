@@ -52,6 +52,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $bankAccounts;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $registrationDate;
+
     public function __construct()
     {
         $this->bankAccounts = new ArrayCollection();
@@ -196,6 +201,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $bankAccount->setUsers(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getRegistrationDate(): ?\DateTimeInterface
+    {
+        return $this->registrationDate;
+    }
+
+    public function setRegistrationDate(\DateTimeInterface $registrationDate): self
+    {
+        $this->registrationDate = $registrationDate;
 
         return $this;
     }

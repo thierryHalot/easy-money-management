@@ -32,6 +32,7 @@ class AppFixtures extends Fixture
         $user->setLastname("Halot");
         $user->setEmail("halotthierry34@gmail.com");
         $user->setPassword($this->hasher->hashPassword($user,"mdp"));
+        $user->setRegistrationDate(DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s')));
         $user->setRoles(["ROLE_USER"]);
         $manager->persist($user);
 

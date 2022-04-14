@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RegisterController!{% endblock %}
+
+{% block body %}
+<div class="container">
+	<div class="row justify-content-md-center">
+		<div class="col-md-6 app-form">
+            {% if notification %}
+            <div class="alert alert-info">{{ notification }}</div>
+            {% endif %}
+			<h1>Inscription</h1>
+			{{form(form)}}
+		</div>
+	</div>
+</div>
+
+{% endblock %}
